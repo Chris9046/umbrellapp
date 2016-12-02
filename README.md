@@ -1,2 +1,9 @@
 # umbrellapp
-The umbrella app allows you to request weather forecasts for your city from OpenWeatherMap API 
+The umbrella is a weather forecast app.
+
+## Demo
+You can access the demo [here](www.kamonas.gr/umbrellapp).
+
+## Installation
+You can clone the repo
+> git clone https://github.com/Chris9046/umbrellapp.git
