@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="The umbrella app allows you to request weather forecasts for your city or by your geo location">
+    <title>umbrellapp - My City Weather Forecast</title>
+    <!-- Bootstrap's compiled CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!-- Bootstrap's compiled JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/svg4everybody.min.js"></script>
+  </head>
+  <body>
+
+      <div id="header">
+        <div class="menu"><span onclick="openNav()"><svg class="icon-menu"><use xlink:href="assets/sprite.svg#menu"></use></svg></span></div>
+        <div class="logo"><a href="#" onclick="window.location.reload()"><svg class="icon-logo"><use xlink:href="assets/sprite.svg#logo"></use></svg></a></div>
+        <div class="fav"></div>
+      </div>
+
+      <div id="main">
+        <div class="main-container">
+
+          <!-- Home/Search Form -->
+          <div class="error-message">
+            <p>Something went wrong, try again!</p>
+          </div>
+
+          <!-- Home/Search Form -->
+          <div class="search-form">
+            <p>type a location:</p>
+            <div class="search-group">
+              <input type="text" class="search-input" placeholder="type here...">
+              <button class="btn btn-search" type="button"><svg class="icon-search"><use xlink:href="assets/sprite.svg#search"></use></svg></button>
+            </div>
+            <p>or give us your location</p>
+            <a class="btn btn-geo"><svg class="icon-geo"><use xlink:href="assets/sprite.svg#geo"></use></svg> access location</a>
+          </div>
+
+          <!-- Current Weather / Today -->
+          <div class="current-weather"></div>
+
+          <!-- 5 Day Weather Forecast -->
+          <div class="weather-forecasts"></div>
+      </div>
+    </div>
+
+    <!-- Side Nav -->
+    <div id="Sidenav" class="sidenav">
+      <div class="navcontainer">
+        <div><a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><svg class="icon-close"><use xlink:href="assets/sprite.svg#close"></use></svg></a></div>
+        <div class="slogan"><h1>Your <br/>best <br/>weather <br/>app</h1></div>
+        <div class="menu">
+          <a href="#">team</a>
+          <a href="#">history</a>
+          <a href="#">contact</a>
+        </div>
+        <div class="social">
+          <p>suggest to a friend</p>
+          <a href="#" onclick="window.open('http://www.facebook.com/sharer.php?u='+encodeURI(window.location.href));" title="If you love it, share it on facebook!"><svg class="icon-facebook"><use xlink:href="assets/sprite.svg#facebook"></use></svg></a>
+          <a href="#" onclick="window.open('http://twitter.com/share?url='+encodeURI(window.location.href));" title="If you love it, share it on twiiter!"><svg class="icon-twitter"><use xlink:href="assets/sprite.svg#twitter"></use></svg></a>
+          <a href="#" onclick="window.open('https://plus.google.com/share?url='+encodeURI(window.location.href));" title="If you love it, share it on google+!"><svg class="icon-google"><use xlink:href="assets/sprite.svg#google"></use></svg></a>
+        </div>
+      </div>
+    </div>
+
+      <!-- Home Loader -->
+      <div class="homeloader">
+        <svg class="icon-logo"><use xlink:href="assets/sprite.svg#logo"></use></svg>
+        <h2 class="titleapp">umbrellapp</h2>
+
+        <svg class="icon-loader" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 53 100" >
+          <circle fill="#fff" stroke="none" cx="6" cy="50" r="6">
+            <animate
+              attributeName="opacity"
+              dur="1s"
+              values="0;1;0"
+              repeatCount="indefinite"
+              begin="0.1"/>
+          </circle>
+          <circle fill="#fff" stroke="none" cx="26" cy="50" r="6">
+            <animate
+              attributeName="opacity"
+              dur="1s"
+              values="0;1;0"
+              repeatCount="indefinite"
+              begin="0.2"/>
+          </circle>
+          <circle fill="#fff" stroke="none" cx="46" cy="50" r="6">
+            <animate
+              attributeName="opacity"
+              dur="1s"
+              values="0;1;0"
+              repeatCount="indefinite"
+              begin="0.3"/>
+          </circle>
+        </svg>
+      </div>
+
+      <!-- Loader -->
+      <div class="weatherloader">
+        <svg class="icon-loader" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 53 100" >
+          <circle fill="#fff" stroke="none" cx="6" cy="50" r="6">
+            <animate
+              attributeName="opacity"
+              dur="1s"
+              values="0;1;0"
+              repeatCount="indefinite"
+              begin="0.1"/>
+          </circle>
+          <circle fill="#fff" stroke="none" cx="26" cy="50" r="6">
+            <animate
+              attributeName="opacity"
+              dur="1s"
+              values="0;1;0"
+              repeatCount="indefinite"
+              begin="0.2"/>
+          </circle>
+          <circle fill="#fff" stroke="none" cx="46" cy="50" r="6">
+            <animate
+              attributeName="opacity"
+              dur="1s"
+              values="0;1;0"
+              repeatCount="indefinite"
+              begin="0.3"/>
+          </circle>
+        </svg>
+      </div>
+
+
+    <script>
+
+      svg4everybody();
+
+      function openNav() {
+          document.getElementById("Sidenav").style.width = "300px";
+      }
+
+      function closeNav() {
+          document.getElementById("Sidenav").style.width = "0";
+      }
+    </script>
+
+  </body>
+</html>
